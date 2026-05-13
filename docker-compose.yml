@@ -1,6 +1,6 @@
 services:
   app:
-    image: php:8.5-apache
+    build: .
     container_name: sms-gateway-app
     ports:
       - "8080:80"
@@ -11,8 +11,6 @@ services:
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html/public
     working_dir: /var/www/html
-    command: >
-      bash -c "docker-php-ext-install pdo pdo_pgsql pgsql && apache2-foreground"
 
   db:
     image: postgres:18
