@@ -5,11 +5,17 @@ namespace App\DTO;
 readonly class SmsListData
 {
     private const int DEFAULT_PAGE = 1;
+
     private const int DEFAULT_PER_PAGE = 20;
+
     private const string DEFAULT_SORT = 'sent_at:asc';
+
     public int $page;
+
     public int $perPage;
+
     public string $sort;
+
     public ?string $status;
 
     public function __construct(

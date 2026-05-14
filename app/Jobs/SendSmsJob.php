@@ -15,12 +15,12 @@ class SendSmsJob implements ShouldQueue
     use Queueable;
 
     public int $tries = 3;
+
     public int $timeout = 30;
 
     public function __construct(
         public SmsMessage $sms
-    ) {
-    }
+    ) {}
 
     final public function handle(
         SmsProviderInterface $provider

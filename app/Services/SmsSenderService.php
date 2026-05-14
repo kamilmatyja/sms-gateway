@@ -14,8 +14,7 @@ readonly class SmsSenderService
     public function __construct(
         private SmsProviderInterface $provider,
         private SmsMessageRepository $repository,
-    ) {
-    }
+    ) {}
 
     final public function send(SmsMessageData $dto): SmsMessage
     {
@@ -25,7 +24,7 @@ readonly class SmsSenderService
             SmsMessageProvider::fromInterface($this->provider)->value,
         );
 
-        SendSmsJob::dispatchSync($message);
+        SendSmsJob::dispatch($message);
 
         return $message;
     }

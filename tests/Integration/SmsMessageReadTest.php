@@ -25,4 +25,3 @@ class SmsMessageReadTest extends TestCase
         $this->assertEquals(SmsMessageStatus::Queued->value, $found->status);
     }
 }
-

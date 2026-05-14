@@ -35,4 +35,3 @@ class SmsMessageCreateTest extends TestCase
         ]);
     }
 }
-

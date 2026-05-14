@@ -22,6 +22,7 @@ class SmsMessage extends Model
 {
     /** @use HasFactory<SmsMessageFactory> */
     use HasFactory;
+
     protected $fillable = [
         'id',
         'to',

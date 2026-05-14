@@ -20,4 +20,3 @@ class SmsMessageStatusTest extends TestCase
         $this->assertContains('queued', SmsMessageStatus::values());
     }
 }
-

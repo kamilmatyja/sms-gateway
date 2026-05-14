@@ -69,7 +69,7 @@ class SmsSendTest extends TestCase
     private function mockSmsProvider(): void
     {
         $mock = $this->createMock(SmsProviderInterface::class);
-        $mock->method('send')->willReturn(new SmsProviderData(Uuid::uuid4()->toString(), new Carbon()));
+        $mock->method('send')->willReturn(new SmsProviderData(Uuid::uuid4()->toString(), new Carbon));
         $this->app->instance(SmsProviderInterface::class, $mock);
     }
 }

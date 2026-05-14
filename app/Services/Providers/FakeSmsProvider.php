@@ -12,6 +12,6 @@ class FakeSmsProvider implements SmsProviderInterface
 {
     final public function send(SmsMessageData $data): SmsProviderData
     {
-        return new SmsProviderData(Uuid::uuid4()->toString(), new Carbon());
+        return new SmsProviderData(Uuid::uuid4()->toString(), new Carbon);
     }
 }

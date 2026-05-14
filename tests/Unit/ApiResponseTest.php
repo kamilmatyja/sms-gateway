@@ -18,4 +18,3 @@ class ApiResponseTest extends TestCase
         $this->assertEquals(['id' => $id], $response->getData(true));
     }
 }
-

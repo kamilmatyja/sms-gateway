@@ -32,7 +32,7 @@ class SmsMessageRepository
         return SmsMessage::query()
             ->when(
                 $dto->status,
-                fn($query) => $query->where(
+                fn ($query) => $query->where(
                     'status',
                     $dto->status
                 )
@@ -44,4 +44,3 @@ class SmsMessageRepository
             );
     }
 }
-

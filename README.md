@@ -20,6 +20,10 @@ frontend aplikacji: http://localhost:8000/
 
 api aplikacji: http://localhost:8000/api/
 
+pint: ./vendor/bin/pint
+
+testy: ./vendor/bin/phpunit
+
 ## Wejście do kontenerów
 
 - **Aplikacja:**
@@ -29,31 +33,4 @@ api aplikacji: http://localhost:8000/api/
 - **Baza danych:**
   ```bash
   docker exec -it sms-gateway-db bash
-  ```
-
-## Przykładowe polecenia Artisan
-
-- **Dodanie modelu z migracją:**
-  ```bash
-  php artisan make:model SmsMessage -m
-  ```
-- **Dodanie zasobu:**
-  ```bash
-  php artisan make:resource SmsResource
-  ```
-- **Dodanie testu:**
-  ```bash
-  php artisan make:test SmsApiTest
-  ```
-- **Dodanie wyjątku:**
-  ```bash
-  php artisan make:exception SmsProviderException
-  ```
-- **Dodanie kontrolera:**
-  ```bash
-  php artisan make:controller SmsController
-  ```
-- **Dodanie repozytorium:**
-  ```bash
-  php artisan make:repository SmsRepository
   ```

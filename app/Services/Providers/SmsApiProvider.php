@@ -35,7 +35,7 @@ class SmsApiProvider implements SmsProviderInterface
 
         return new SmsProviderData(
             $list['id'] ?? null,
-            $list['date_sent'] ? new Carbon('@' . $list['date_sent']) : null
+            $list['date_sent'] ? new Carbon('@'.$list['date_sent']) : null
         );
     }
 }

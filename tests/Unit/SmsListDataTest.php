@@ -9,7 +9,7 @@ class SmsListDataTest extends TestCase
 {
     final public function test_defaults(): void
     {
-        $dto = new SmsListData();
+        $dto = new SmsListData;
         $this->assertEquals(1, $dto->page);
         $this->assertEquals(20, $dto->perPage);
         $this->assertEquals('sent_at:asc', $dto->sort);
@@ -25,4 +25,3 @@ class SmsListDataTest extends TestCase
         $this->assertEquals('sent', $dto->status);
     }
 }
-
