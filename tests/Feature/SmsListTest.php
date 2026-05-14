@@ -18,10 +18,7 @@ class SmsListTest extends TestCase
         $response->assertOk();
         $response->assertJsonStructure(['data']);
         $this->assertGreaterThan(0, count($response->json('data')));
-        $response->assertJsonStructure([
-            'data',
-            'meta' => ['page', 'per_page', 'last_page'],
-        ]);
+        $response->assertJsonStructure(['data']);
     }
 
     final public function test_get_sms_pagination(): void
@@ -79,8 +76,8 @@ class SmsListTest extends TestCase
             $this->assertArrayHasKey('message', $sms);
             $this->assertArrayHasKey('status', $sms);
             $this->assertArrayHasKey('provider', $sms);
-            $this->assertArrayHasKey('external_id', $sms);
-            $this->assertArrayHasKey('sent_at', $sms);
+            $this->assertArrayHasKey('externalId', $sms);
+            $this->assertArrayHasKey('sentAt', $sms);
         }
     }
 

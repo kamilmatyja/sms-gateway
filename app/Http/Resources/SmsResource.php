@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class SmsResource extends JsonResource
 {
-    public function toArray($request): array
+    final public function toArray($request): array
     {
         return [
             'id' => $this->id,
@@ -18,8 +18,8 @@ class SmsResource extends JsonResource
             'message' => $this->message,
             'status' => $this->status,
             'provider' => $this->provider,
-            'external_id' => $this->external_id,
-            'sent_at' => $this->sent_at,
+            'externalId' => $this->external_id,
+            'sentAt' => $this->sent_at,
         ];
     }
 }

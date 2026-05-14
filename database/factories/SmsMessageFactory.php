@@ -15,7 +15,7 @@ class SmsMessageFactory extends Factory
 {
     protected $model = SmsMessage::class;
 
-    public function definition(): array
+    final public function definition(): array
     {
         return [
             'id' => fake()->uuid(),

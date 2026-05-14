@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
+    final public function register(): void
     {
         $this->app->bind(
             SmsProviderInterface::class,
@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
+    final public function boot(): void
     {
         //
     }

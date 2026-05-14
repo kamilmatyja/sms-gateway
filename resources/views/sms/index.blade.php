@@ -76,7 +76,7 @@
         }
         let html = '<div class="overflow-x-auto"><table class="min-w-full bg-white rounded shadow"><thead><tr><th class="px-3 py-2 border-b">Numer</th><th class="px-3 py-2 border-b">Treść</th><th class="px-3 py-2 border-b">Status</th><th class="px-3 py-2 border-b">Provider</th><th class="px-3 py-2 border-b">Data wysłania</th></tr></thead><tbody>';
         for (const sms of list) {
-            html += `<tr><td class="px-3 py-2 border-b">${sms.to}</td><td class="px-3 py-2 border-b">${sms.message}</td><td class="px-3 py-2 border-b">${sms.status}</td><td class="px-3 py-2 border-b">${sms.provider}</td><td class="px-3 py-2 border-b">${sms.sent_at}</td></tr>`;
+            html += `<tr><td class="px-3 py-2 border-b">${sms.to}</td><td class="px-3 py-2 border-b">${sms.message}</td><td class="px-3 py-2 border-b">${sms.status}</td><td class="px-3 py-2 border-b">${sms.provider}</td><td class="px-3 py-2 border-b">${sms.sentAt}</td></tr>`;
         }
         html += '</tbody></table></div>';
         smsList.innerHTML = html;
