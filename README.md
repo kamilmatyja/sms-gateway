@@ -8,6 +8,9 @@ composer install
 npm install
 docker compose build --no-cache
 docker compose up -d
+docker exec -it sms-gateway-app bash
+php artisan key:generate
+php artisan migrate
 ```
 
 ## Wejście do kontenerów
