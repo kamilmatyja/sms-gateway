@@ -7,7 +7,7 @@ use App\Models\SmsMessage;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class SmsMessageDatabaseTest extends TestCase
+class SmsMessageCreateTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -23,7 +23,7 @@ class SmsMessageDatabaseTest extends TestCase
             'sent_at' => now(),
         ];
 
-        $sms = SmsMessage::create($data);
+        SmsMessage::create($data);
 
         $this->assertDatabaseHas('sms_messages', [
             'id' => $data['id'],
@@ -33,20 +33,6 @@ class SmsMessageDatabaseTest extends TestCase
             'provider' => $data['provider'],
             'external_id' => $data['external_id'],
         ]);
-    }
-
-    final public function test_can_read_sms_message(): void
-    {
-        $sms = SmsMessage::factory()->create([
-            'message' => 'Read test',
-            'status' => SmsMessageStatus::Queued->value,
-        ]);
-
-        $found = SmsMessage::find($sms->id);
-
-        $this->assertNotNull($found);
-        $this->assertEquals('Read test', $found->message);
-        $this->assertEquals(SmsMessageStatus::Queued->value, $found->status);
     }
 }
 

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Database\Factories\SmsMessageFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
@@ -18,7 +20,10 @@ use Illuminate\Support\Carbon;
  */
 class SmsMessage extends Model
 {
+    /** @use HasFactory<SmsMessageFactory> */
+    use HasFactory;
     protected $fillable = [
+        'id',
         'to',
         'message',
         'status',

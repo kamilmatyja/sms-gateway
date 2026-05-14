@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\SmsListData;
+use App\DTO\SmsMessageData;
+use App\Http\Requests\ListSmsRequest;
 use App\Http\Requests\SendSmsRequest;
-use App\Http\Resources\SmsResource;
+use App\Http\Resources\SmsResourceCollection;
 use App\Services\SmsListService;
 use App\Services\SmsSenderService;
+use App\Support\ApiResponse;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class SmsController extends Controller
 {
@@ -15,21 +18,19 @@ class SmsController extends Controller
         SendSmsRequest $request,
         SmsSenderService $service
     ): JsonResponse {
-        $message = $service->send(
-            $request->to,
-            $request->message
-        );
+        $message = $service->send(new SmsMessageData($request->to, $request->message));
 
-        return response()->json([
-            'success' => true,
-            'data' => new SmsResource($message),
-        ], 201);
+        return ApiResponse::created($message->id);
     }
 
-    final public function index(SmsListService $service): AnonymousResourceCollection
-    {
-        $messages = $service->getPaginated();
+    final public function index(
+        ListSmsRequest $request,
+        SmsListService $service
+    ): SmsResourceCollection {
+        $messages = $service->list(
+            new SmsListData($request->page, $request->perPage, $request->sort, $request->status)
+        );
 
-        return SmsResource::collection($messages);
+        return new SmsResourceCollection($messages);
     }
 }

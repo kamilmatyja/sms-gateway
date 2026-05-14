@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
@@ -14,7 +13,7 @@ class SendSmsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'to' => ['required', 'regex:/^[0-9]{9,15}$/'],
+            'to' => ['required', 'regex:/^\+[0-9]{2,3}(?: ?[0-9]){9}$/'],
             'message' => ['required', 'string', 'min:4', 'max:256'],
         ];
     }

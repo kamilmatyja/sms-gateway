@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Enums\SmsMessageProvider;
 use App\Enums\SmsMessageStatus;
+use App\Models\SmsMessage;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -11,11 +13,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SmsMessageFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = SmsMessage::class;
+
     public function definition(): array
     {
         return [
@@ -23,7 +22,7 @@ class SmsMessageFactory extends Factory
             'to' => fake()->phoneNumber(),
             'message' => fake()->sentence(),
             'status' => fake()->randomElement(SmsMessageStatus::values()),
-            'provider' => fake()->randomElement(['fakeSms', 'smsApi']),
+            'provider' => fake()->randomElement(SmsMessageProvider::values()),
             'external_id' => fake()->uuid(),
             'sent_at' => now(),
             'created_at' => now(),

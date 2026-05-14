@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTO\SmsListData;
 use App\Repositories\SmsMessageRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -11,9 +12,9 @@ readonly class SmsListService
     {
     }
 
-    final public function getPaginated(): LengthAwarePaginator
+    final public function list(SmsListData $dto): LengthAwarePaginator
     {
-        return $this->repository->paginate();
+        return $this->repository->list($dto);
     }
 }
 
