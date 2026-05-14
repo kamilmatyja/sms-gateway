@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Contracts\SmsProviderInterface;
 use App\DTO\SmsMessageData;
 use App\Enums\SmsMessageProvider;
-use App\Enums\SmsMessageStatus;
 use App\Jobs\SendSmsJob;
 use App\Models\SmsMessage;
 use App\Repositories\SmsMessageRepository;
@@ -26,7 +25,7 @@ readonly class SmsSenderService
             SmsMessageProvider::fromInterface($this->provider)->value,
         );
 
-        SendSmsJob::dispatch($message);
+        SendSmsJob::dispatchSync($message);
 
         return $message;
     }

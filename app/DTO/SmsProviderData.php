@@ -2,11 +2,13 @@
 
 namespace App\DTO;
 
+use Carbon\CarbonInterface;
+
 readonly class SmsProviderData
 {
     public function __construct(
-        public bool $success,
-        public ?string $externalId,
+        public ?string $id,
+        public ?CarbonInterface $sentAt
     ) {
     }
 }

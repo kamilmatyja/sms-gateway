@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Contracts\SmsProviderInterface;
 use App\DTO\SmsProviderData;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
@@ -68,7 +69,7 @@ class SmsSendTest extends TestCase
     private function mockSmsProvider(): void
     {
         $mock = $this->createMock(SmsProviderInterface::class);
-        $mock->method('send')->willReturn(new SmsProviderData(true, Uuid::uuid4()->toString()));
+        $mock->method('send')->willReturn(new SmsProviderData(Uuid::uuid4()->toString(), new Carbon()));
         $this->app->instance(SmsProviderInterface::class, $mock);
     }
 }

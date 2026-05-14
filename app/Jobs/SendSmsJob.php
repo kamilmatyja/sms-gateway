@@ -35,8 +35,8 @@ class SendSmsJob implements ShouldQueue
 
             $this->sms->update([
                 'status' => SmsMessageStatus::Sent,
-                'sent_at' => now(),
-                'external_id' => $response->externalId,
+                'sent_at' => $response->sentAt,
+                'external_id' => $response->id,
             ]);
         } catch (Throwable $e) {
             $this->sms->update([
