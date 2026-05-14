@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\DTO\SmsListData;
+use App\Enums\SmsMessageStatus;
 use App\Models\SmsMessage;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Ramsey\Uuid\Uuid;
@@ -12,18 +13,15 @@ class SmsMessageRepository
     final public function create(
         string $to,
         string $message,
-        string $status,
-        string $provider,
-        ?string $externalId
+        string $provider
     ): SmsMessage {
         return SmsMessage::create([
             'id' => Uuid::uuid4()->toString(),
             'to' => $to,
             'message' => $message,
-            'status' => $status,
+            'status' => SmsMessageStatus::Queued->value,
             'provider' => $provider,
-            'external_id' => $externalId,
-            'sent_at' => now(),
+            'sent_at' => null,
         ]);
     }
 
