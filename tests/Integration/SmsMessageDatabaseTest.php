@@ -2,8 +2,8 @@
 
 namespace Tests\Integration;
 
+use App\Enums\SmsMessageStatus;
 use App\Models\SmsMessage;
-use App\Models\SmsMessageStatus;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

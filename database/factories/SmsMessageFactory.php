@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\SmsMessageStatus;
+use App\Enums\SmsMessageStatus;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

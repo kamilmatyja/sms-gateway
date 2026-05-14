@@ -3,7 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
+/**
+ * @property string $id
+ * @property string $to
+ * @property string $message
+ * @property string $status
+ * @property string $provider
+ * @property string $external_id
+ * @property Carbon|null $sent_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ */
 class SmsMessage extends Model
 {
     protected $fillable = [
