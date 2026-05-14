@@ -33,9 +33,9 @@ class SmsApiProvider implements SmsProviderInterface
             throw new Exception($list['error']);
         }
 
-        return new SmsProviderData(
-            $list['id'] ?? null,
-            $list['date_sent'] ? new Carbon('@'.$list['date_sent']) : null
-        );
+        $id = $list['id'] ?? null;
+        $dateSent = isset($list['date_sent']) ? new Carbon('@'.$list['date_sent']) : null;
+
+        return new SmsProviderData($id, $dateSent);
     }
 }
